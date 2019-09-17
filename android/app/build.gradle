@@ -2,12 +2,12 @@ apply plugin: 'com.android.library'
 apply from: '../prepare-robolectric.gradle'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
 
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 27
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
     }
@@ -40,19 +40,21 @@ android {
         }
     }
 
-    flavorDimensions "RNNotifications.reactNativeVersion"
-    productFlavors {
-        reactNative59 {
-            dimension "RNNotifications.reactNativeVersion"
-        }
-        reactNative60 {
-            dimension "RNNotifications.reactNativeVersion"
-        }
-    }
+     flavorDimensions "RNNotifications.reactNativeVersion"
+     productFlavors {
+         reactNative59 {
+             dimension "RNNotifications.reactNativeVersion"
+             buildConfigField("int", "REACT_NATVE_VERSION_MINOR", "59")
+         }
+         reactNative60 {
+             dimension "RNNotifications.reactNativeVersion"
+             buildConfigField("int", "REACT_NATVE_VERSION_MINOR", "60")
+         }
+     }
 }
 
 dependencies {
-    implementation "com.google.firebase:firebase-messaging:17.3.0"
+    implementation "com.google.firebase:firebase-messaging:20.0.0"
     implementation 'com.facebook.react:react-native:+'
 
     // tests
@@ -60,5 +62,5 @@ dependencies {
     testImplementation 'org.robolectric:robolectric:3.5.1'
     testImplementation 'org.assertj:assertj-core:3.8.0'
     testImplementation 'com.squareup.assertj:assertj-android:1.1.1'
-    testImplementation 'org.mockito:mockito-core:2.13.0'
+    testImplementation 'org.mockito:mockito-core:2.28.2'
 }
