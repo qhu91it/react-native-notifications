@@ -39,18 +39,6 @@ android {
             }
         }
     }
-
-     flavorDimensions "RNNotifications.reactNativeVersion"
-     productFlavors {
-         reactNative59 {
-             dimension "RNNotifications.reactNativeVersion"
-             buildConfigField("int", "REACT_NATVE_VERSION_MINOR", "59")
-         }
-         reactNative60 {
-             dimension "RNNotifications.reactNativeVersion"
-             buildConfigField("int", "REACT_NATVE_VERSION_MINOR", "60")
-         }
-     }
 }
 
 dependencies {

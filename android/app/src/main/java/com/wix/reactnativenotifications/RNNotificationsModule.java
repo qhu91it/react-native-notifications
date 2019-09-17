@@ -27,6 +27,9 @@ import com.wix.reactnativenotifications.fcm.FcmInstanceIdRefreshHandlerService;
 
 import static com.wix.reactnativenotifications.Defs.LOGTAG;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationManagerCompat;
+
 public class RNNotificationsModule extends ReactContextBaseJavaModule implements ActivityEventListener {
 
     public RNNotificationsModule(Application application, ReactApplicationContext reactContext) {
@@ -107,7 +110,7 @@ public class RNNotificationsModule extends ReactContextBaseJavaModule implements
 
     @ReactMethod
     public void isRegisteredForRemoteNotifications(Promise promise) {
-        boolean hasPermission = NotificationManagerCompatFacade.from(getReactApplicationContext()).areNotificationsEnabled();
+        boolean hasPermission = NotificationManagerCompat.from(getReactApplicationContext()).areNotificationsEnabled();
         promise.resolve(new Boolean(hasPermission));
     }
 
